@@ -25,6 +25,7 @@ async function handleText(senderId, text) {
     await sendQuickReplies(senderId, "Bạn muốn làm gì tiếp theo?", [
         { content_type: "text", title: "📖 Xem Menu", payload: "VIEW_MENU" },
         { content_type: "text", title: "📅 Đặt Bàn", payload: "BOOK_TABLE" },
+        { content_type: "text", title: "ℹ️ Giới thiệu nhà hàng", payload: "INFO" },
     ]);
     // await sendTextMessage(senderId, text);
 }
