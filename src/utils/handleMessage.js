@@ -9,32 +9,7 @@ const PRODUCTS = {
         {
             title: "GIÀY TÂY TARACO GT-1001",
             subtitle: "Thoải mái, phong cách hiện đại",
-            image_url: "src/access/imgs/giayTay/gt1001.jpg",
-        },
-        {
-            title: "GIÀY TÂY TARACO GT-1002",
-            subtitle: "Chất liệu da cao cấp, bền bỉ",
-            image_url: "src/access/imgs/giayTay/gt-1002.jpg",
-        },
-        {
-            title: "GIÀY TÂY TARACO GT-1004",
-            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
-            image_url: "src/access/imgs/giayTay/gt-1004.jpg",
-        },
-        {
-            title: "GIÀY TÂY TARACO GT-1005",
-            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
-            image_url: "src/access/imgs/giayTay/gt-1005.jpg",
-        },
-        {
-            title: "GIÀY TÂY TARACO GT-1006",
-            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
-            image_url: "src/access/imgs/giayTay/gt-1006.jpg",
-        },
-        {
-            title: "GIÀY TÂY TARACO GT-1009",
-            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
-            image_url: "src/access/imgs/giayTay/gt-1009.jpg",
+            image_url: "https://bizweb.dktcdn.net/thumb/large/100/422/612/products/z6308228199184-e7c303c4870ccb9d1b543edbe513e6df.jpg?v=1745924340470",
         },
         
     ],
