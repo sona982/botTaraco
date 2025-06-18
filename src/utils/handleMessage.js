@@ -5,22 +5,19 @@ const userStates = new Map(); // senderId -> { step, category, product }
 const userOrders = new Map(); // senderId -> { name, phone, address, product }
 
 const PRODUCTS = {
-    "GIÀY TÂY": [
+    "giày sneaker": [
         {
-            title: "GIÀY TÂY TARACO GT-1001",
+            title: "Nike Air Max",
             subtitle: "Thoải mái, phong cách hiện đại",
-            image_url: "https://bizweb.dktcdn.net/thumb/large/100/422/612/products/z6308228199184-e7c303c4870ccb9d1b543edbe513e6df.jpg?v=1745924340470",
+            image_url: "https://linkanh1.jpg",
         },
-        
-    ],
-    "GIÀY MỌI": [
         {
-            title: "Túi xách da bò",
-            subtitle: "Bền đẹp, thời trang",
-            image_url: "https://linkanh2.jpg",
+            title: "Adidas Ultra Boost",
+            subtitle: "Chạy bộ tuyệt vời",
+            image_url: "https://linkanh3.jpg",
         },
     ],
-    "GIÀY SAPO": [
+    "túi xách": [
         {
             title: "Túi xách da bò",
             subtitle: "Bền đẹp, thời trang",
