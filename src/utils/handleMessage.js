@@ -5,19 +5,47 @@ const userStates = new Map(); // senderId -> { step, category, product }
 const userOrders = new Map(); // senderId -> { name, phone, address, product }
 
 const PRODUCTS = {
-    "giày sneaker": [
+    "GIÀY TÂY": [
         {
-            title: "Nike Air Max",
+            title: "GIÀY TÂY TARACO GT-1001",
             subtitle: "Thoải mái, phong cách hiện đại",
-            image_url: "https://linkanh1.jpg",
+            image_url: "src/access/imgs/giayTay/gt1001.jpg",
         },
         {
-            title: "Adidas Ultra Boost",
-            subtitle: "Chạy bộ tuyệt vời",
-            image_url: "https://linkanh3.jpg",
+            title: "GIÀY TÂY TARACO GT-1002",
+            subtitle: "Chất liệu da cao cấp, bền bỉ",
+            image_url: "src/access/imgs/giayTay/gt-1002.jpg",
+        },
+        {
+            title: "GIÀY TÂY TARACO GT-1004",
+            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
+            image_url: "src/access/imgs/giayTay/gt-1004.jpg",
+        },
+        {
+            title: "GIÀY TÂY TARACO GT-1005",
+            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
+            image_url: "src/access/imgs/giayTay/gt-1005.jpg",
+        },
+        {
+            title: "GIÀY TÂY TARACO GT-1006",
+            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
+            image_url: "src/access/imgs/giayTay/gt-1006.jpg",
+        },
+        {
+            title: "GIÀY TÂY TARACO GT-1009",
+            subtitle: "Thiết kế thanh lịch, phù hợp mọi dịp",
+            image_url: "src/access/imgs/giayTay/gt-1009.jpg",
+        },
+        
+    ],
+    "GIÀY MỌI": [
+        {
+            title: "Túi xách da bò",
+            subtitle: "Bền đẹp, thời trang",
+            image_url: "https://linkanh2.jpg",
         },
     ],
-    "túi xách": [
+    "GIÀY SAPO": [
         {
             title: "Túi xách da bò",
             subtitle: "Bền đẹp, thời trang",
