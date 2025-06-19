@@ -20,15 +20,26 @@ const sample = {
             title: "Giày Tây GT1001",
             image_url: "https://i.imgur.com/0y8Ftya.jpeg",
             subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
-            buttons: [{ title: "Chọn GT1001", payload: "chon_GT1001" }],
+            buttons: [
+              {
+                type: "postback",
+                title: "Chọn GT1001",
+                payload: "chon_GT1001",
+              },
+            ],
           },
           {
             title: "Giày Tây GT1002",
             image_url: "https://i.imgur.com/0y8Ftya.jpeg",
             subtitle: "Giày Tây GT1002 - Da bò Ý, size 39-44. Giá: 1.600.000đ",
-            buttons: [{ title: "Chọn GT1002", payload: "chon_GT1002" }],
+            buttons: [
+              {
+                type: "postback",
+                title: "Chọn GT1002",
+                payload: "chon_GT1002",
+              },
+            ],
           },
-          // ... Thêm các sản phẩm GT1003-GT1010 tương tự
         ],
       },
     },
@@ -41,7 +52,13 @@ const sample = {
             title: "Giày Mọi GM1025",
             image_url: "https://i.imgur.com/0y8Ftya.jpeg",
             subtitle: "Giày Mọi GM1025 - Da bò, size 39-44. Giá: 1.200.000đ",
-            buttons: [{ title: "Chọn GM1025", payload: "chon_GM1025" }],
+            buttons: [
+              {
+                type: "postback",
+                title: "Chọn GM1025",
+                payload: "chon_GM1025",
+              },
+            ],
           },
           // ... Thêm các sản phẩm GM1026-GM1030 tương tự
         ],
@@ -56,7 +73,13 @@ const sample = {
             title: "Giày Sapo SP1013",
             image_url: "https://i.imgur.com/0y8Ftya.jpeg",
             subtitle: "Giày Sapo SP1013 - Da bò, size 39-44. Giá: 1.300.000đ",
-            buttons: [{ title: "Chọn SP1013", payload: "chon_SP1013" }],
+            buttons: [
+              {
+                type: "postback",
+                title: "Chọn SP1013",
+                payload: "chon_SP1013",
+              },
+            ],
           },
           // ... Thêm các sản phẩm SP1014-SP1024 tương tự
         ],
@@ -73,7 +96,7 @@ const sample = {
       payload: { variable: "product", value: "Giày Tây GT1002" },
       next: "ask_name",
     },
-    // ... Các block chọn sản phẩm khác tương tự, trỏ về ask_name
+// ... Các block chọn sản phẩm khác tương tự, trỏ về ask_name
     chon_GM1025: {
       type: "set_variable",
       payload: { variable: "product", value: "Giày Mọi GM1025" },
@@ -86,7 +109,7 @@ const sample = {
     },
     // Hỏi tên
     ask_name: {
-type: "input",
+      type: "input",
       payload: {
         question: "📛 Vui lòng nhập tên của bạn:",
         variable: "name",
@@ -101,7 +124,7 @@ type: "input",
       payload: {
         question: "📞 Vui lòng nhập số điện thoại của bạn:",
         variable: "phone",
-        validate: "^d{9,11}$",
+        validate: "^\\d{9,11}$",
         error: "❌ Số điện thoại không hợp lệ, vui lòng nhập lại!",
       },
       next: "ask_address",
