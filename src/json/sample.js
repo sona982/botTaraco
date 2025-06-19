@@ -3,7 +3,19 @@ const sample = {
     greeting: {
       type: "button",
       payload: {
-        text: "👋 Chào mừng bạn đến với Taraco - Cửa hàng giày da cao cấp! Bạn muốn xem loại giày nào? (Website: taraco.vn)",
+        text: "👋 Chào mừng bạn đến với Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
+        buttons: [
+          { title: "🛍️ Xem sản phẩm", next: "choose_category" },
+          { title: "🏬 Thông tin cửa hàng", next: "store_info" },
+          { title: "🛡️ Chính sách bảo hành", next: "warranty_info" },
+        ],
+      },
+    },
+
+    choose_category: {
+      type: "button",
+      payload: {
+        text: "Vui lòng chọn loại giày bạn muốn xem:",
         buttons: [
           { title: "Giày Tây", next: "show_giay_tay" },
           { title: "Giày Mọi", next: "show_giay_moi" },
@@ -11,6 +23,23 @@ const sample = {
         ],
       },
     },
+
+    store_info: {
+      type: "text",
+      payload: {
+        text: "📍 Địa chỉ: 123 Đường Da Sang, TP.HCM\n🌐 Website: https://taraco.vn\n📞 Hotline: 1900 123 456",
+      },
+      next: "greeting",
+    },
+
+    warranty_info: {
+      type: "text",
+      payload: {
+        text: "🛡️ Bảo hành 12 tháng với mọi sản phẩm lỗi do nhà sản xuất. Đổi hàng trong 30 ngày nếu chưa qua sử dụng.",
+      },
+      next: "greeting",
+    },
+
     // Giày Tây
     show_giay_tay: {
       type: "generic",
@@ -43,6 +72,7 @@ const sample = {
         ],
       },
     },
+
     // Giày Mọi
     show_giay_moi: {
       type: "generic",
@@ -60,10 +90,10 @@ const sample = {
               },
             ],
           },
-          // ... Thêm các sản phẩm GM1026-GM1030 tương tự
         ],
       },
     },
+
     // Giày Sapo
     show_giay_sapo: {
       type: "generic",
@@ -81,10 +111,10 @@ const sample = {
               },
             ],
           },
-          // ... Thêm các sản phẩm SP1014-SP1024 tương tự
         ],
       },
     },
+
     // Chọn sản phẩm
     chon_GT1001: {
       type: "set_variable",
@@ -96,7 +126,6 @@ const sample = {
       payload: { variable: "product", value: "Giày Tây GT1002" },
       next: "ask_name",
     },
-// ... Các block chọn sản phẩm khác tương tự, trỏ về ask_name
     chon_GM1025: {
       type: "set_variable",
       payload: { variable: "product", value: "Giày Mọi GM1025" },
@@ -107,6 +136,7 @@ const sample = {
       payload: { variable: "product", value: "Giày Sapo SP1013" },
       next: "ask_name",
     },
+
     // Hỏi tên
     ask_name: {
       type: "input",
@@ -118,6 +148,7 @@ const sample = {
       },
       next: "ask_phone",
     },
+
     // Hỏi SĐT
     ask_phone: {
       type: "input",
@@ -129,6 +160,7 @@ const sample = {
       },
       next: "ask_address",
     },
+
     // Hỏi địa chỉ
     ask_address: {
       type: "input",
@@ -138,16 +170,42 @@ const sample = {
         validate: ".{5,}",
         error: "❌ Địa chỉ quá ngắn, vui lòng nhập lại!",
       },
+      next: "ask_size",
+    },
+
+    // Hỏi size
+    ask_size: {
+      type: "input",
+      payload: {
+        question: "👞 Bạn muốn đặt size bao nhiêu? (VD: 40, 41...)",
+        variable: "size",
+        validate: "^\\d{2}$",
+        error: "❌ Vui lòng nhập size hợp lệ (ví dụ: 40)!",
+      },
+      next: "ask_color",
+    },
+
+    // Hỏi màu sắc
+    ask_color: {
+      type: "input",
+      payload: {
+        question: "🎨 Bạn muốn chọn màu gì? (VD: Đen, Nâu...)",
+        variable: "color",
+        validate: "^[a-zA-ZÀ-ỹ\s]{2,}$",
+        error: "❌ Màu không hợp lệ, vui lòng nhập lại!",
+      },
       next: "show_order_summary",
     },
+
     // Hiển thị phiếu mua hàng
     show_order_summary: {
       type: "text",
       payload: {
-        text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa chỉ: {{address}}\nSản phẩm: {{product}}\n\nChính sách bảo hành: 12 tháng, 1 đổi 1 trong 30 ngày nếu lỗi do nhà sản xuất.\nWebsite: taraco.vn",
+        text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa chỉ: {{address}}\nSản phẩm: {{product}}\nSize: {{size}}\nMàu: {{color}}\n\nChính sách bảo hành: 12 tháng, 1 đổi 1 trong 30 ngày nếu lỗi do nhà sản xuất.\nWebsite: taraco.vn",
       },
       next: "confirm_order",
     },
+
     // Xác nhận đơn hàng
     confirm_order: {
       type: "button",
@@ -159,6 +217,7 @@ const sample = {
         ],
       },
     },
+
     // Cảm ơn
     thank_you: {
       type: "text",
