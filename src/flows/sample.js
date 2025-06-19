@@ -1,452 +1,433 @@
 export const deepFlow = {
-    id: "batdau",
-    type: "text",
-    payload: {
-        text: "👋 Chào bạn đến với cửa hàng ABC!",
+    "id": "batdau",
+    "type": "text",
+    "payload": {
+        "text": "👞 Chào bạn đến với cửa hàng giày da TARACO!"
     },
-    condition: {
-        type: "value_match",
-        branches: [
+    "condition": {
+        "type": "value_match",
+        "branches": [
             {
-                value: "hi",
-                next: [
+                "value": "hi",
+                "next": [
                     {
-                        id: "intro_menu",
-                        type: "text",
-                        payload: {
-                            text: "Bạn đang tìm kiếm điều gì hôm nay?",
+                        "id": "intro_menu",
+                        "type": "text",
+                        "payload": {
+                            "text": "Hôm nay bạn quan tâm đến loại giày nào ạ?"
                         },
-                        next: {
-                            id: "main_menu",
-                            type: "quick_replies",
-                            payload: {
-                                text: "📋 Vui lòng chọn một trong các mục sau:",
-                                replies: [
-                                    { title: "👕 Áo thun", payload: "AO_THUN" },
-                                    { title: "👟 Giày", payload: "GIAY" },
-                                    { title: "📦 Khác", payload: "KHAC" },
-                                ],
+                        "next": {
+                            "id": "main_menu",
+                            "type": "quick_replies",
+                            "payload": {
+                                "text": "🛍️ Vui lòng chọn danh mục sản phẩm:",
+                                "replies": [
+                                    {
+                                        "title": "👞 Giày Tây",
+                                        "payload": "GIAY_TAY"
+                                    },
+                                    {
+                                        "title": "🥿 Giày Mọi",
+                                        "payload": "GIAY_MOI"
+                                    },
+                                    {
+                                        "title": "👟 Giày Sapo",
+                                        "payload": "GIAY_SAPO"
+                                    }
+                                ]
                             },
-                            condition: {
-                                type: "value_match",
-                                branches: [
+                            "condition": {
+                                "type": "value_match",
+                                "branches": [
                                     {
-                                        value: "AO_THUN",
-                                        next: {
-                                            id: "show_ao_thun",
-                                            type: "generic_template",
-                                            payload: {
-                                                elements: [
+                                        "value": "GIAY_TAY",
+                                        "next": {
+                                            "id": "show_giay_tay",
+                                            "type": "generic_template",
+                                            "payload": {
+                                                "elements": [
                                                     {
-                                                        title: "Áo thun basic",
-                                                        subtitle: "Giá: 199.000đ",
-                                                        image_url: "https://via.placeholder.com/300x200",
-                                                        buttons: [
+                                                        "title": "Giày Tây 1001",
+                                                        "subtitle": "Giá: 950,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1001.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_AO_BASIC",
-                                                            },
-                                                        ],
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1001"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        title: "Áo thun oversize",
-                                                        subtitle: "Giá: 249.000đ",
-                                                        image_url: "https://via.placeholder.com/300x200",
-                                                        buttons: [
+                                                        "title": "Giày Tây 1002",
+                                                        "subtitle": "Giá: 1,000,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1002.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_AO_OVERSIZE",
-                                                            },
-                                                        ],
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1002"
+                                                            }
+                                                        ]
                                                     },
-                                                ],
-                                            },
-                                            condition: {
-                                                type: "value_match",
-                                                branches: [
                                                     {
-                                                        value: "MUA_AO_BASIC",
-                                                        next: {
-                                                            id: "confirm_basic",
-                                                            type: "button_template",
-                                                            payload: {
-                                                                text: "Bạn có muốn đặt Áo thun basic không?",
-                                                                buttons: [
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "✅ Đặt hàng",
-                                                                        payload: "DAT_AO_BASIC",
-                                                                    },
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "❌ Hủy",
-                                                                        payload: "HUY_MUA",
-                                                                    },
-                                                                ],
-                                                            },
-                                                            condition: {
-                                                                type: "value_match",
-                                                                branches: [
-                                                                    {
-                                                                        value: "DAT_AO_BASIC",
-                                                                        next: {
-                                                                            id: "dat_hang_basic",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "✅ Đơn hàng đã được tạo. Cảm ơn bạn!",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        value: "HUY_MUA",
-                                                                        next: {
-                                                                            id: "huy_mua",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "❌ Bạn đã hủy đặt hàng.",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        },
-                                                    },
-                                                ],
-                                            },
-                                        },
-                                    },
-                                    {
-                                        value: "GIAY",
-                                        next: {
-                                            id: "show_giay",
-                                            type: "generic_template",
-                                            payload: {
-                                                elements: [
-                                                    {
-                                                        title: "Giày thể thao",
-                                                        subtitle: "Giá: 599.000đ",
-                                                        image_url:
-                                                            "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/123456789_123456789_123456789_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=123456789&_nc_ht=scontent.fhan5-11.fna&oh=123456789&oe=123456789",
-                                                        buttons: [
+                                                        "title": "Giày Tây 1003",
+                                                        "subtitle": "Giá: 1,050,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1003.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_GIAY_THE_THAO",
-                                                            },
-                                                        ],
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1003"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        title: "Giày lười",
-                                                        subtitle: "Giá: 399.000đ",
-                                                        image_url:
-                                                            "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/123456789_123456789_123456789_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=123456789&_nc_ht=scontent.fhan5-11.fna&oh=123456789&oe=123456789",
-                                                        buttons: [
+                                                        "title": "Giày Tây 1004",
+                                                        "subtitle": "Giá: 1,100,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1004.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_GIAY_LUOI",
-                                                            },
-                                                        ],
-                                                    },
-                                                ],
-                                            },
-                                            condition: {
-                                                type: "value_match",
-                                                branches: [
-                                                    {
-                                                        value: "MUA_GIAY_THE_THAO",
-                                                        next: {
-                                                            id: "confirm_giay_the_thao",
-                                                            type: "button_template",
-                                                            payload: {
-                                                                text: "Bạn có muốn đặt Giày thể thao không?",
-                                                                buttons: [
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "✅ Đặt hàng",
-                                                                        payload: "DAT_GIAY_THE_THAO",
-                                                                    },
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "❌ Hủy",
-                                                                        payload: "HUY_MUA",
-                                                                    },
-                                                                ],
-                                                            },
-                                                            condition: {
-                                                                type: "value_match",
-                                                                branches: [
-                                                                    {
-                                                                        value: "DAT_GIAY_THE_THAO",
-                                                                        next: {
-                                                                            id: "dat_hang_giay_the_thao",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "✅ Đơn hàng đã được tạo. Cảm ơn bạn!",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        value: "HUY_MUA",
-                                                                        next: {
-                                                                            id: "huy_mua",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "❌ Bạn đã hủy đặt hàng.",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        },
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1004"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        value: "MUA_GIAY_LUOI",
-                                                        next: {
-                                                            id: "confirm_giay_luoi",
-                                                            type: "button_template",
-                                                            payload: {
-                                                                text: "Bạn có muốn đặt Giày lười không?",
-                                                                buttons: [
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "✅ Đặt hàng",
-                                                                        payload: "DAT_GIAY_LUOI",
-                                                                    },
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "❌ Hủy",
-                                                                        payload: "HUY_MUA",
-                                                                    },
-                                                                ],
-                                                            },
-                                                            condition: {
-                                                                type: "value_match",
-                                                                branches: [
-                                                                    {
-                                                                        value: "DAT_GIAY_LUOI",
-                                                                        next: {
-                                                                            id: "dat_hang_giay_luoi",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "✅ Đơn hàng đã được tạo. Cảm ơn bạn!",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        value: "HUY_MUA",
-                                                                        next: {
-                                                                            id: "huy_mua",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "❌ Bạn đã hủy đặt hàng.",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        },
+                                                        "title": "Giày Tây 1005",
+                                                        "subtitle": "Giá: 1,150,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1005.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1005"
+                                                            }
+                                                        ]
                                                     },
-                                                ],
-                                            },
-                                        },
+                                                    {
+                                                        "title": "Giày Tây 1006",
+                                                        "subtitle": "Giá: 1,200,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1006.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1006"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Tây 1007",
+                                                        "subtitle": "Giá: 1,250,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1007.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1007"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Tây 1008",
+                                                        "subtitle": "Giá: 1,300,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1008.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1008"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Tây 1009",
+                                                        "subtitle": "Giá: 1,350,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1009.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1009"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Tây 1010",
+                                                        "subtitle": "Giá: 1,400,000đ",
+                                                        "image_url": "https://taraco.vn/images/GT1010.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GT1010"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     },
                                     {
-                                        value: "KHAC",
-                                        next: {
-                                            id: "show_khac",
-                                            type: "generic_template",
-                                            payload: {
-                                                elements: [
+                                        "value": "GIAY_SAPO",
+                                        "next": {
+                                            "id": "show_giay_sapo",
+                                            "type": "generic_template",
+                                            "payload": {
+                                                "elements": [
                                                     {
-                                                        title: "Balo thời trang",
-                                                        subtitle: "Giá: 399.000đ",
-                                                        image_url:
-                                                            "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/123456789_123456789_123456789_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=123456789&_nc_ht=scontent.fhan5-11.fna&oh=123456789&oe=123456789",
-                                                        default_action: {
-                                                            type: "web_url",
-                                                            url: "https://www.facebook.com",
-                                                        },
-                                                        buttons: [
+                                                        "title": "Giày Sapo 1013",
+                                                        "subtitle": "Giá: 890,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1013.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_BALO",
-                                                            },
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1013"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1014",
+                                                        "subtitle": "Giá: 940,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1014.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Xem chi tiết",
-                                                                payload: "XEM_BALO",
-                                                            },
-                                                        ],
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1014"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        title: "Mũ lưỡi trai",
-                                                        subtitle: "Giá: 99.000đ",
-                                                        image_url:
-                                                            "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-6/123456789_123456789_123456789_n.jpg?_nc_cat=1&ccb=1-7&_nc_sid=5f2048&_nc_ohc=123456789&_nc_ht=scontent.fhan5-11.fna&oh=123456789&oe=123456789",
-                                                        default_action: {
-                                                            type: "web_url",
-                                                            url: "https://www.facebook.com",
-                                                        },
-                                                        buttons: [
+                                                        "title": "Giày Sapo 1015",
+                                                        "subtitle": "Giá: 990,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1015.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Chọn mua",
-                                                                payload: "MUA_MU",
-                                                            },
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1015"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1016",
+                                                        "subtitle": "Giá: 1,040,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1016.jpg",
+                                                        "buttons": [
                                                             {
-                                                                type: "postback",
-                                                                title: "Xem chi tiết",
-                                                                payload: "XEM_MU",
-                                                            },
-                                                        ],
-                                                    },
-                                                ],
-                                            },
-                                            condition: {
-                                                type: "value_match",
-                                                branches: [
-                                                    {
-                                                        value: "MUA_BALO",
-                                                        next: {
-                                                            id: "confirm_balo",
-                                                            type: "button_template",
-                                                            payload: {
-                                                                text: "Bạn có muốn đặt Balo thời trang không?",
-                                                                buttons: [
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "✅ Đặt hàng",
-                                                                        payload: "DAT_BALO",
-                                                                    },
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "❌ Hủy",
-                                                                        payload: "HUY_MUA",
-                                                                    },
-                                                                ],
-                                                            },
-                                                            condition: {
-                                                                type: "value_match",
-                                                                branches: [
-                                                                    {
-                                                                        value: "DAT_BALO",
-                                                                        next: {
-                                                                            id: "dat_hang_balo",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "✅ Đơn hàng đã được tạo. Cảm ơn bạn!",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        value: "HUY_MUA",
-                                                                        next: {
-                                                                            id: "huy_mua",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "❌ Bạn đã hủy đặt hàng.",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        },
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1016"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        value: "MUA_MU",
-                                                        next: {
-                                                            id: "confirm_mu",
-                                                            type: "button_template",
-                                                            payload: {
-                                                                text: "Bạn có muốn đặt Mũ lưỡi trai không?",
-                                                                buttons: [
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "✅ Đặt hàng",
-                                                                        payload: "DAT_MU",
-                                                                    },
-                                                                    {
-                                                                        type: "postback",
-                                                                        title: "❌ Hủy",
-                                                                        payload: "HUY_MUA",
-                                                                    },
-                                                                ],
-                                                            },
-                                                            condition: {
-                                                                type: "value_match",
-                                                                branches: [
-                                                                    {
-                                                                        value: "DAT_MU",
-                                                                        next: {
-                                                                            id: "dat_hang_mu",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "✅ Đơn hàng đã được tạo. Cảm ơn bạn!",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                    {
-                                                                        value: "HUY_MUA",
-                                                                        next: {
-                                                                            id: "huy_mua",
-                                                                            type: "text",
-                                                                            payload: {
-                                                                                text: "❌ Bạn đã hủy đặt hàng.",
-                                                                            },
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                        },
+                                                        "title": "Giày Sapo 1017",
+                                                        "subtitle": "Giá: 1,090,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1017.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1017"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        value: "XEM_BALO",
-                                                        next: {
-                                                            id: "xem_balo",
-                                                            type: "text",
-                                                            payload: {
-                                                                text: "🎒 Balo thời trang:\n- Chất liệu: Canvas cao cấp\n- Kích thước: 40x30x12cm\n- Nhiều ngăn tiện dụng\n- Màu sắc: Đen, Xám, Navy",
-                                                            },
-                                                        },
+                                                        "title": "Giày Sapo 1018",
+                                                        "subtitle": "Giá: 1,140,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1018.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1018"
+                                                            }
+                                                        ]
                                                     },
                                                     {
-                                                        value: "XEM_MU",
-                                                        next: {
-                                                            id: "xem_mu",
-                                                            type: "text",
-                                                            payload: {
-                                                                text: "🧢 Mũ lưỡi trai:\n- Chất liệu: Cotton\n- Size: Free size (điều chỉnh được)\n- Phong cách: Basic\n- Màu sắc: Đen, Trắng, Xám",
-                                                            },
-                                                        },
+                                                        "title": "Giày Sapo 1019",
+                                                        "subtitle": "Giá: 1,190,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1019.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1019"
+                                                            }
+                                                        ]
                                                     },
-                                                ],
-                                            },
-                                        },
+                                                    {
+                                                        "title": "Giày Sapo 1020",
+                                                        "subtitle": "Giá: 1,240,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1020.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1020"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1021",
+                                                        "subtitle": "Giá: 1,290,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1021.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1021"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1022",
+                                                        "subtitle": "Giá: 1,340,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1022.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1022"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1023",
+                                                        "subtitle": "Giá: 1,390,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1023.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1023"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Sapo 1024",
+                                                        "subtitle": "Giá: 1,440,000đ",
+                                                        "image_url": "https://taraco.vn/images/SP1024.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_SP1024"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     },
-                                ],
-                                default: {
-                                    id: "unknown_main_menu",
-                                    type: "text",
-                                    payload: {
-                                        text: "❓ Mình không hiểu lựa chọn của bạn. Bạn có thể chọn lại từ menu nhé!",
-                                    },
-                                },
+                                    {
+                                        "value": "GIAY_MOI",
+                                        "next": {
+                                            "id": "show_giay_moi",
+                                            "type": "generic_template",
+                                            "payload": {
+                                                "elements": [
+                                                    {
+                                                        "title": "Giày Mọi 1025",
+                                                        "subtitle": "Giá: 790,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1025.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1025"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Mọi 1026",
+                                                        "subtitle": "Giá: 840,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1026.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1026"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Mọi 1027",
+                                                        "subtitle": "Giá: 890,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1027.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1027"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Mọi 1028",
+                                                        "subtitle": "Giá: 940,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1028.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1028"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Mọi 1029",
+                                                        "subtitle": "Giá: 990,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1029.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1029"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "title": "Giày Mọi 1030",
+                                                        "subtitle": "Giá: 1,040,000đ",
+                                                        "image_url": "https://taraco.vn/images/GM1030.jpg",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Chọn mua",
+                                                                "payload": "MUA_GM1030"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
                             },
-                        },
-                    },
-                ],
-            },
-        ],
+                            "default": {
+                                "id": "unknown_main_menu",
+                                "type": "text",
+                                "payload": {
+                                    "text": "❓ Mình không hiểu lựa chọn của bạn. Vui lòng chọn lại từ menu."
+                                }
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
     },
-    default: {
-        id: "unknown_greeting",
-        type: "text",
-        payload: {
-            text: "🤖 Xin lỗi, bạn có thể chào lại bằng 'hi' không?",
-        },
-    },
-};
+    "default": {
+        "id": "unknown_greeting",
+        "type": "text",
+        "payload": {
+            "text": "🤖 Bạn vui lòng gõ 'hi' để bắt đầu nhé!"
+        }
+    }
+}
