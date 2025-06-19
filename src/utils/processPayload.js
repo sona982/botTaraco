@@ -12,7 +12,7 @@ async function processPayload(senderId, messageText) {
       );
       if (btn) {
         if (btn.value) {
-          setUserContext(senderId, "selected_shoe", btn.value);
+          setUserContext(senderId, "product", btn.value);
           console.log("Chon giay", btn.value);
         }
         if (btn.next) {
@@ -35,11 +35,11 @@ async function processPayload(senderId, messageText) {
         if (btn) {
           // Nếu là chọn sản phẩm, lưu lại tên sản phẩm
           if (el.title) {
-            setUserContext(senderId, "selected_shoe", el.title);
+            setUserContext(senderId, "product", el.title);
             console.log("Chon san pham", el.title);
           }
           if (btn.value) {
-            setUserContext(senderId, "selected_shoe", btn.value);
+            setUserContext(senderId, "product", btn.value);
           }
           if (btn.next) {
             await handleBlock(senderId, btn.next);
