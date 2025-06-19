@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const sample = {
   blocks: {
     greeting: {
@@ -47,7 +49,7 @@ const sample = {
         elements: [
           {
             title: "Giày Tây GT1001",
-            image_url: "https://i.imgur.com/0y8Ftya.jpeg",
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
             buttons: [
               {
@@ -59,7 +61,7 @@ const sample = {
           },
           {
             title: "Giày Tây GT1002",
-            image_url: "https://i.imgur.com/0y8Ftya.jpeg",
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Tây GT1002 - Da bò Ý, size 39-44. Giá: 1.600.000đ",
             buttons: [
               {
@@ -80,7 +82,7 @@ const sample = {
         elements: [
           {
             title: "Giày Mọi GM1025",
-            image_url: "https://i.imgur.com/0y8Ftya.jpeg",
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Mọi GM1025 - Da bò, size 39-44. Giá: 1.200.000đ",
             buttons: [
               {
@@ -96,12 +98,12 @@ const sample = {
 
     // Giày Sapo
     show_giay_sapo: {
-      type: "generic",
+type: "generic",
       payload: {
         elements: [
           {
             title: "Giày Sapo SP1013",
-image_url: "https://i.imgur.com/0y8Ftya.jpeg",
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Sapo SP1013 - Da bò, size 39-44. Giá: 1.300.000đ",
             buttons: [
               {
@@ -143,7 +145,7 @@ image_url: "https://i.imgur.com/0y8Ftya.jpeg",
       payload: {
         question: "📛 Vui lòng nhập tên của bạn:",
         variable: "name",
-        validate: "^[a-zA-ZÀ-ỹ\s]{2,}$",
+        validate: "^[a-zA-ZÀ-ỹs]{2,}$",
         error: "❌ Tên không hợp lệ, vui lòng nhập lại!",
       },
       next: "ask_phone",
@@ -155,7 +157,7 @@ image_url: "https://i.imgur.com/0y8Ftya.jpeg",
       payload: {
         question: "📞 Vui lòng nhập số điện thoại của bạn:",
         variable: "phone",
-        validate: "^\d{9,11}$",
+        validate: "^\\d{9,11}$",
         error: "❌ Số điện thoại không hợp lệ, vui lòng nhập lại!",
       },
       next: "ask_address",
@@ -179,7 +181,7 @@ image_url: "https://i.imgur.com/0y8Ftya.jpeg",
       payload: {
         question: "👞 Bạn muốn đặt size bao nhiêu? (VD: 40, 41...)",
         variable: "size",
-        validate: "^\d{2}$",
+        validate: "^\\d{2}$",
         error: "❌ Vui lòng nhập size hợp lệ (ví dụ: 40)!",
       },
       next: "ask_color",
@@ -191,7 +193,7 @@ image_url: "https://i.imgur.com/0y8Ftya.jpeg",
       payload: {
         question: "🎨 Bạn muốn chọn màu gì? (VD: Đen, Nâu...)",
         variable: "color",
-        validate: "^[a-zA-ZÀ-ỹ\s]{2,}$",
+        validate: "^[a-zA-ZÀ-ỹs]{2,}$",
         error: "❌ Màu không hợp lệ, vui lòng nhập lại!",
       },
       next: "show_order_summary",
