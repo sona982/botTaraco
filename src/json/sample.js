@@ -101,7 +101,7 @@ const sample = {
         elements: [
           {
             title: "Giày Sapo SP1013",
-            image_url: "https://i.imgur.com/0y8Ftya.jpeg",
+image_url: "https://i.imgur.com/0y8Ftya.jpeg",
             subtitle: "Giày Sapo SP1013 - Da bò, size 39-44. Giá: 1.300.000đ",
             buttons: [
               {
@@ -143,7 +143,7 @@ const sample = {
       payload: {
         question: "📛 Vui lòng nhập tên của bạn:",
         variable: "name",
-        validate: "^[a-zA-ZÀ-ỹs]{2,}$",
+        validate: "^[a-zA-ZÀ-ỹ\s]{2,}$",
         error: "❌ Tên không hợp lệ, vui lòng nhập lại!",
       },
       next: "ask_phone",
@@ -155,7 +155,7 @@ const sample = {
       payload: {
         question: "📞 Vui lòng nhập số điện thoại của bạn:",
         variable: "phone",
-        validate: "^\\d{9,11}$",
+        validate: "^\d{9,11}$",
         error: "❌ Số điện thoại không hợp lệ, vui lòng nhập lại!",
       },
       next: "ask_address",
@@ -179,7 +179,7 @@ const sample = {
       payload: {
         question: "👞 Bạn muốn đặt size bao nhiêu? (VD: 40, 41...)",
         variable: "size",
-        validate: "^\\d{2}$",
+        validate: "^\d{2}$",
         error: "❌ Vui lòng nhập size hợp lệ (ví dụ: 40)!",
       },
       next: "ask_color",
@@ -201,7 +201,7 @@ const sample = {
     show_order_summary: {
       type: "text",
       payload: {
-        text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa chỉ: {{address}}\nSản phẩm: {{product}}\nSize: {{size}}\nMàu: {{color}}\n\nChính sách bảo hành: 12 tháng, 1 đổi 1 trong 30 ngày nếu lỗi do nhà sản xuất.\nWebsite: taraco.vn",
+text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa chỉ: {{address}}\nSản phẩm: {{product}}\nSize: {{size}}\nMàu: {{color}}\n\nChính sách bảo hành: 12 tháng, 1 đổi 1 trong 30 ngày nếu lỗi do nhà sản xuất.\nWebsite: taraco.vn",
       },
       next: "confirm_order",
     },
