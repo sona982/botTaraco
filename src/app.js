@@ -7,10 +7,17 @@ const { setUserContext, getUserContext } = require("./store/userContextStore");
 const env = require("dotenv");
 const { getUserProfile } = require("./services/facebookService");
 const { processPayload } = require("./utils/processPayload");
+const path = require("path");
 env.config();
 
 const app = express();
 app.use(bodyParser.json());
+
+// Đảm bảo đường dẫn tuyệt đối
+app.use(
+  "/src/access/imgs",
+  express.static(path.join(__dirname, "access/imgs"))
+);
 
 const PORT = 3000;
 

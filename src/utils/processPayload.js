@@ -3,7 +3,7 @@ const { setUserContext } = require("../store/userContextStore");
 const flow = require("../json/sample");
 
 async function processPayload(senderId, messageText) {
-  // Tìm button tương ứng trong tất cả các block
+  // 1. Check button trong block 'button'
   for (const [blockName, block] of Object.entries(flow.blocks)) {
     if (block.type === "button") {
       const buttons = block.payload.buttons || [];
@@ -13,14 +13,43 @@ async function processPayload(senderId, messageText) {
       if (btn) {
         if (btn.value) {
           setUserContext(senderId, "selected_shoe", btn.value);
+          console.log("Chon giay", btn.value);
         }
         if (btn.next) {
           await handleBlock(senderId, btn.next);
-          return true; // Đã xử lý
+          return true;
         }
       }
     }
   }
+
+  // 2. Check button trong block 'generic' (trong từng element)
+  for (const [blockName, block] of Object.entries(flow.blocks)) {
+    if (block.type === "generic") {
+      const elements = block.payload.elements || [];
+      for (const el of elements) {
+        const buttons = el.buttons || [];
+        const btn = buttons.find(
+          (b) => b.payload === messageText || b.title === messageText
+        );
+        if (btn) {
+          // Nếu là chọn sản phẩm, lưu lại tên sản phẩm
+          if (el.title) {
+            setUserContext(senderId, "selected_shoe", el.title);
+            console.log("Chon san pham", el.title);
+          }
+          if (btn.value) {
+            setUserContext(senderId, "selected_shoe", btn.value);
+          }
+          if (btn.next) {
+            await handleBlock(senderId, btn.next);
+            return true;
+          }
+        }
+      }
+    }
+  }
+
   return false; // Không tìm thấy payload tương ứng
 }
 
