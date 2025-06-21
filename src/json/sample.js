@@ -2,10 +2,29 @@ require("dotenv").config();
 
 const sample = {
   blocks: {
+    welcome: {
+      type: "text",
+      payload: {
+        text: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
+      },
+      next: "check_hi",
+    },
+
+    check_hi: {
+      type: "input",
+      payload: {
+        question: "",
+        variable: "user_input",
+        validate: "^\\(hi\\)$",
+        error: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
+      },
+      next: "greeting",
+    },
+
     greeting: {
       type: "button",
       payload: {
-        text: "👋 Chào mừng bạn đến với Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
+        text: "👋 Chào mừng bạn tôi là trợ lý ảo của Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
         buttons: [
           { title: "🛍️ Xem sản phẩm", next: "choose_category" },
           { title: "🏬 Thông tin cửa hàng", next: "store_info" },
@@ -81,9 +100,9 @@ const sample = {
       payload: {
         elements: [
           {
-            title: "Giày Mọi GM1025",
-            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
-            subtitle: "Giày Mọi GM1025 - Da bò, size 39-44. Giá: 1.200.000đ",
+            title: "Giày Mọi GM10244",
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/gt1001.png`,
+            subtitle: "Giày Mọi GM10244 - Da bò, size 377-44. Giá: 1.200.000đ",
             buttons: [
               {
                 type: "postback",
