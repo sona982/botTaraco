@@ -48,7 +48,7 @@ const sample = {
     store_info: {
       type: "text",
       payload: {
-        text: "📍 Địa chỉ: 123 Đường Da Sang, TP.HCM\n🌐 Website: https://taraco.vn\n📞 Hotline: 1900 123 456",
+        text: "📍 Địa chỉ: 60 ĐƯỜNG SỐ 3, KHU DÂN CƯ T30, XÃ BÌNH HƯNG, HUYỆN BÌNH CHÁNH, TP.HCM\n🌐 Website: https://taraco.vn\n📞 Hotline: 0357 66 3979",
       },
       next: "greeting",
     },
@@ -56,7 +56,7 @@ const sample = {
     warranty_info: {
       type: "text",
       payload: {
-        text: "🛡️ Bảo hành 12 tháng với mọi sản phẩm lỗi do nhà sản xuất. Đổi hàng trong 30 ngày nếu chưa qua sử dụng.",
+        text: "🛡️ Bảo hành 12 tháng với mọi sản phẩm lỗi do nhà sản xuất, bảo dưỡng miễn phí, bảo hành keo chỉ trọn đời. Đổi hàng trong 7 ngày nếu chưa qua sử dụng.",
       },
       next: "greeting",
     },
