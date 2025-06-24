@@ -2,26 +2,14 @@ require("dotenv").config();
 
 const sample = {
   blocks: {
-    welcome: {
+    greeting: {
       type: "text",
       payload: {
         text: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
       },
-      next: "check_hi",
     },
 
-    check_hi: {
-      type: "input",
-      payload: {
-        question: "",
-        variable: "user_input",
-        validate: "^\\(hi\\)$",
-        error: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
-      },
-      next: "greeting",
-    },
-
-    greeting: {
+    hi: {
       type: "button",
       payload: {
         text: "👋 Chào mừng bạn tôi là trợ lý ảo của Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
