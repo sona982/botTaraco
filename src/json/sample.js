@@ -21,6 +21,18 @@ const sample = {
       },
     },
 
+    Hi: {
+      type: "button",
+      payload: {
+        text: "👋 Chào mừng bạn tôi là trợ lý ảo của Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
+        buttons: [
+          { title: "🛍️ Xem sản phẩm", next: "choose_category" },
+          { title: "🏬 Thông tin cửa hàng", next: "store_info" },
+          { title: "🛡️ Chính sách bảo hành", next: "warranty_info" },
+        ],
+      },
+    },
+
     choose_category: {
       type: "button",
       payload: {
