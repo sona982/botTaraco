@@ -5,7 +5,7 @@ const sample = {
     greeting: {
       type: "text",
       payload: {
-        text: "👋 Chào mừng bạn đến với taraco.vn ! Nếu bạn muốn gặp trợ lý ảo của Taraco để được chăm sóc tự động vui lòng gõ (hi)",
+        text: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
       },
     },
 
@@ -15,7 +15,6 @@ const sample = {
         text: "👋 Chào mừng bạn tôi là trợ lý ảo của Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
         buttons: [
           { title: "🛍️ Xem sản phẩm", next: "choose_category" },
-          { title: "🖼️ Xem tin tức TARACO", next: "news_info" },
           { title: "🏬 Thông tin cửa hàng", next: "store_info" },
           { title: "🛡️ Chính sách bảo hành", next: "warranty_info" },
         ],
@@ -28,7 +27,6 @@ const sample = {
         text: "👋 Chào mừng bạn tôi là trợ lý ảo của Taraco - Cửa hàng giày da cao cấp! Bạn muốn làm gì? (Website: taraco.vn)",
         buttons: [
           { title: "🛍️ Xem sản phẩm", next: "choose_category" },
-          { title: "🖼️ Xem tin tức TARACO", next: "news_info" },
           { title: "🏬 Thông tin cửa hàng", next: "store_info" },
           { title: "🛡️ Chính sách bảo hành", next: "warranty_info" },
         ],
@@ -47,17 +45,6 @@ const sample = {
       },
     },
 
-    news_info: {
-      type: "button",
-      payload: {
-        text: "📰 Các tin tức mới nhất từ Taraco:",
-        buttons: [
-          { title: "Các khuyến mã ở TARACO", next: "news_1" },
-          { title: "Hoạt động TARACO", next: "news_2" },
-          { title: "Hình ảnh, video TARACO", next: "news_3" },
-        ],
-      },
-    },
     store_info: {
       type: "text",
       payload: {
@@ -74,10 +61,6 @@ const sample = {
       next: "greeting",
     },
 
-    // Tin tức
-    news_1: {
-      type: "image",
-
     // Giày Tây
     show_giay_tay: {
       type: "generic",
@@ -85,7 +68,7 @@ const sample = {
         elements: [
           {
             title: "Giày Tây GT1001",
-            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
             buttons: [
               {
@@ -97,7 +80,7 @@ const sample = {
           },
           {
             title: "Giày Tây GT1002",
-            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Tây GT1002 - Da bò Ý, size 39-44. Giá: 1.600.000đ",
             buttons: [
               {
@@ -118,7 +101,7 @@ const sample = {
         elements: [
           {
             title: "Giày Mọi GM10244",
-            image_url: ${process.env.IMAGE_URL}/src/access/imgs/gt1001.png,
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/gt1001.png`,
             subtitle: "Giày Mọi GM10244 - Da bò, size 377-44. Giá: 1.200.000đ",
             buttons: [
               {
@@ -139,7 +122,7 @@ type: "generic",
         elements: [
           {
             title: "Giày Sapo SP1013",
-            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
+            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
             subtitle: "Giày Sapo SP1013 - Da bò, size 39-44. Giá: 1.300.000đ",
             buttons: [
               {
@@ -266,5 +249,5 @@ text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa c
     },
   },
 };
-}
+
 module.exports = sample;
