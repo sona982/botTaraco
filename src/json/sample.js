@@ -85,8 +85,8 @@ const sample = {
         elements: [
           {
             title: "Giày Tây GT1001",
-            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
-subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
+            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
+            subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
             buttons: [
               {
                 type: "postback",
@@ -97,7 +97,7 @@ subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
           },
           {
             title: "Giày Tây GT1002",
-            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
+            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
             subtitle: "Giày Tây GT1002 - Da bò Ý, size 39-44. Giá: 1.600.000đ",
             buttons: [
               {
@@ -118,7 +118,7 @@ subtitle: "Giày Tây GT1001 - Da bò Ý, size 39-44. Giá: 1.500.000đ",
         elements: [
           {
             title: "Giày Mọi GM10244",
-            image_url: `${process.env.IMAGE_URL}/src/access/imgs/gt1001.png`,
+            image_url: ${process.env.IMAGE_URL}/src/access/imgs/gt1001.png,
             subtitle: "Giày Mọi GM10244 - Da bò, size 377-44. Giá: 1.200.000đ",
             buttons: [
               {
@@ -139,7 +139,7 @@ type: "generic",
         elements: [
           {
             title: "Giày Sapo SP1013",
-            image_url: `${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg`,
+            image_url: ${process.env.IMAGE_URL}/src/access/imgs/giay-da-nam-henry-11.jpg,
             subtitle: "Giày Sapo SP1013 - Da bò, size 39-44. Giá: 1.300.000đ",
             buttons: [
               {
@@ -192,7 +192,7 @@ type: "generic",
       type: "input",
       payload: {
         question: "📞 Vui lòng nhập số điện thoại của bạn:",
-variable: "phone",
+        variable: "phone",
         validate: "^\\d{9,11}$",
         error: "❌ Số điện thoại không hợp lệ, vui lòng nhập lại!",
       },
@@ -266,5 +266,5 @@ text: "🧾 PHIẾU MUA HÀNG\nKhách hàng: {{name}}\nSĐT: {{phone}}\nĐịa c
     },
   },
 };
-
+}
 module.exports = sample;
