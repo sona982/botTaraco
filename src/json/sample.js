@@ -5,7 +5,7 @@ const sample = {
     greeting: {
       type: "text",
       payload: {
-        text: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi)",
+        text: "👋 Chào mừng bạn! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi) hoặc liên hệ qua taraco.vn",
       },
     },
 
