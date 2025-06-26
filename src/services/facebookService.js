@@ -18,8 +18,40 @@ async function sendMessage(payload) {
   }
 }
 
+// Hàm helper để hiển thị typing indicator
+async function showTyping(recipientId, duration = 1000) {
+  try {
+    // Đánh dấu tin nhắn đã xem
+    await sendMessage({
+      recipient: { id: recipientId },
+      sender_action: "mark_seen",
+    });
+
+    // Hiển thị typing indicator
+    await sendMessage({
+      recipient: { id: recipientId },
+      sender_action: "typing_on",
+    });
+
+    // Chờ một khoảng thời gian
+    await new Promise((resolve) => setTimeout(resolve, duration));
+
+    // Ẩn typing indicator
+    await sendMessage({
+      recipient: { id: recipientId },
+      sender_action: "typing_off",
+    });
+  } catch (err) {
+    console.error(
+      "❌ Lỗi hiển thị typing:",
+      err?.response?.data || err.message
+    );
+  }
+}
+
 // Gửi tin nhắn văn bản
 async function sendTextMessage(recipientId, text) {
+  await showTyping(recipientId, 800);
   return sendMessage({
     recipient: { id: recipientId },
     message: { text },
@@ -28,6 +60,7 @@ async function sendTextMessage(recipientId, text) {
 
 // Gửi quick replies
 async function sendQuickReplies(recipientId, text, replies = []) {
+  await showTyping(recipientId, 1000);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -43,6 +76,7 @@ async function sendQuickReplies(recipientId, text, replies = []) {
 
 // Gửi template generic (carousel)
 async function sendGenericTemplate(recipientId, elements = []) {
+  await showTyping(recipientId, 1200);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -59,6 +93,7 @@ async function sendGenericTemplate(recipientId, elements = []) {
 
 // Gửi ảnh
 async function sendImageMessage(recipientId, imageUrl) {
+  await showTyping(recipientId, 1000);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -75,6 +110,7 @@ async function sendImageMessage(recipientId, imageUrl) {
 
 // Gửi video
 async function sendVideoMessage(recipientId, videoUrl) {
+  await showTyping(recipientId, 1200);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -91,6 +127,7 @@ async function sendVideoMessage(recipientId, videoUrl) {
 
 // Gửi audio
 async function sendAudioMessage(recipientId, audioUrl) {
+  await showTyping(recipientId, 1000);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -107,6 +144,7 @@ async function sendAudioMessage(recipientId, audioUrl) {
 
 // Gửi button template
 async function sendButtonTemplate(recipientId, text, buttons = []) {
+  await showTyping(recipientId, 1000);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -126,23 +164,8 @@ async function sendButtonTemplate(recipientId, text, buttons = []) {
   });
 }
 
-// Gửi generic template (carousel)
-async function sendGenericTemplate(recipientId, elements = []) {
-  return sendMessage({
-    recipient: { id: recipientId },
-    message: {
-      attachment: {
-        type: "template",
-        payload: {
-          template_type: "generic",
-          elements,
-        },
-      },
-    },
-  });
-}
-
 async function sendListTemplate(recipientId, elements = [], buttons = []) {
+  await showTyping(recipientId, 1200);
   return sendMessage({
     recipient: { id: recipientId },
     message: {
@@ -169,6 +192,7 @@ async function sendMediaTemplate(
   mediaType = "image",
   button
 ) {
+  await showTyping(recipientId, 1200);
   return sendMessage({
     recipient: { id: recipientId },
     message: {

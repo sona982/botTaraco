@@ -9,4 +9,8 @@ function getUserContext(userId) {
   return userContext[userId] || {};
 }
 
-module.exports = { setUserContext, getUserContext };
+function destroyUserContext(userId) {
+  delete userContext[userId];
+}
+
+module.exports = { setUserContext, getUserContext, destroyUserContext };
