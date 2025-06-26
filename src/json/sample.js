@@ -5,7 +5,7 @@ const sample = {
     greeting: {
       type: "text",
       payload: {
-        text: "👋 Chào mừng {{first_name}}! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi) hoặc liên hệ qua taraco.vn để được đội ngũ TARACO chăm sóc 1 cách ân cần nhất, xin cảm ơn quý khách!",
+        text: "👋 Chào mừng {{name}}! Nếu bạn muốn gặp trợ lý ảo của Taraco, vui lòng gõ (hi) hoặc liên hệ qua taraco.vn để được đội ngũ TARACO chăm sóc 1 cách ân cần nhất, xin cảm ơn quý khách!",
       },
     },
 
@@ -36,7 +36,7 @@ const sample = {
     choose_category: {
       type: "button",
       payload: {
-        text: "Vui lòng chọn loại giày {{first_name}} muốn xem:",
+        text: "Vui lòng chọn loại giày mà {{name}} muốn xem:",
         buttons: [
           { title: "Giày Tây", next: "show_giay_tay" },
           { title: "Giày Mọi", next: "show_giay_moi" },
